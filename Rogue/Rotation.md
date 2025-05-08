@@ -67,4 +67,13 @@ Kinda Interessting Idea.
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Heartstriker") )then PickupContainerItem(b,s)EquipCursorItem(18)end end end
 ```
 /run for i=0,31 do local id,cancel = GetPlayerBuff(i,"HELPFUL|HARMFUL|PASSIVE"); if(id > -1) then local timeleft = GetPlayerBuffTimeLeft(id); DEFAULT_CHAT_FRAME:AddMessage(timeleft); end end
-
+CancelPlayerBuff(buffIndex)   - Removes a specific buff from the player.
+CancelTrackingBuff()   - Cancels your current tracking buff (Find Minerals etc.)
+GetPlayerBuff(buffId, buffFilter)   - Retrieves info about a certain effect (beneficial, harmful or passive)
+GetPlayerBuffApplications(buffIndex)   - Retrieves the number of applications of a debuff or buff.
+GetPlayerBuffDispelType(buffIndex)   - Get the debuff type for a player debuff ("Magic", "Curse", "Disease", or "Poison")
+GetPlayerBuffTexture(buffIndex)   - Retrieves the texture identifier for a certain buff
+GetPlayerBuffTimeLeft(buffIndex)   - Retrieves how long a buff will last before expiring
+GetWeaponEnchantInfo()   - Return information about main and offhand weapon enchantments.
+UnitBuff("unit", index[, showCastable])   - Retrieves info about a buff of a certain unit.
+UnitDebuff("unit", index[, showDispellable])   - Retrieves info about a debuff of a certain unit.
