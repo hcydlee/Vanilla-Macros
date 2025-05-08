@@ -66,5 +66,5 @@ Kinda Interessting Idea.
 /run for z=1,172 do if IsAttackAction(z)athen if not IsCurrentAction(z)then UseAction(z);end;end;end;
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Heartstriker") )then PickupContainerItem(b,s)EquipCursorItem(18)end end end
 ```
-
+/run for i=0,31 do local id,cancel = GetPlayerBuff(i,"HELPFUL|HARMFUL|PASSIVE"); if(id > -1) then local timeleft = GetPlayerBuffTimeLeft(id); DEFAULT_CHAT_FRAME:AddMessage(timeleft); end end
 
