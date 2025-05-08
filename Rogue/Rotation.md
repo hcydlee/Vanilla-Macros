@@ -70,6 +70,9 @@ Kinda Interessting Idea.
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Heartstriker") )then PickupContainerItem(b,s)EquipCursorItem(18)end end end
 ```
 /run for i=0,31 do local id,cancel = GetPlayerBuff(i,"HELPFUL|HARMFUL|PASSIVE"); if(id > -1) then local timeleft = GetPlayerBuffTimeLeft(id); DEFAULT_CHAT_FRAME:AddMessage(timeleft); end end
+
+/run local i=0 g=GetPlayerBuff while not(g(i) == -1)do if(strfind(GetPlayerBuffTexture(g(i)), "Ability_Warrior_PunishingBlow"))then CancelPlayerBuff(g(i))end i=i+1 end
+
 CancelPlayerBuff(buffIndex)   - Removes a specific buff from the player.
 CancelTrackingBuff()   - Cancels your current tracking buff (Find Minerals etc.)
 GetPlayerBuff(buffId, buffFilter)   - Retrieves info about a certain effect (beneficial, harmful or passive)
