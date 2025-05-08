@@ -56,10 +56,12 @@ Kinda Interessting Idea.
 
 
 ## Rotation to refresh SliceDice if <1s.  If ComboPoints >=3, Cast Eviscerate. 
-## To Fit Turtle WOW, Superise Attack if possible. If target's target is player, cast Ghostly Strike.
+## To Fit Turtle WOW, Superise Attack if possible. If target's target is player, cast Ghostly Strike. If Blade Flurry, and energy low, use Tea.
+
 ```
 /run SnD=false for i=1,32,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
-/run SDT=0 for i=0,31 do local id,cancel = GetPlayerBuff(i,"HELPFUL"); if(id > -1 & string.find(id,"SliceDice") then SDT = GetPlayerBuffTimeLeft(id);DEFAULT_CHAT_FRAME:AddMessage(SDT);  end end
+/run BlF=false for i=1,32,1 do gpb1=GetPlayerBuff(i,"HELPFUL"); if not (gpb1 == -1) and (strfind(GetPlayerBuffTexture(gpb1), "Ability_Warrior_PunishingBlow")) then BlF=true end end
+/run SDT=0 for i=1,32,1 do local id,cancel = GetPlayerBuff(i,"HELPFUL"); if(id > -1 & strfind(GetPlayerBuffTexture(id),"Ability_Rogue_SliceDice") then SDT = GetPlayerBuffTimeLeft(id);DEFAULT_CHAT_FRAME:AddMessage(SDT);  end end
 /run for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z);end;end;end;
 /run if GetComboPoints("target")>0  and SDT <=1 then CastSpellByName("Slice and Dice()"); end
 /run if IsUsableAction(60) then CastSpellByName("Surprise Attack()"); end
