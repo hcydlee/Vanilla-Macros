@@ -60,13 +60,13 @@ Kinda Interessting Idea.
 ```
 /run SnD=false for i=1,32,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
 /run for i=0,31 do local id,cancel = GetPlayerBuff(i,"HELPFUL"); if(id > -1 & string.find(id,"SliceDice") then local SDT = GetPlayerBuffTimeLeft(id);DEFAULT_CHAT_FRAME:AddMessage(SDT);  end end
+/run for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z)then UseAction(z);end;end;end;
 /run if GetComboPoints("target")>0  and SDT <=1 then CastSpellByName("Slice and Dice()"); end
 /run if IsUsableAction(60) then CastSpellByName("Surprise Attack()"); end
 /run if GetComboPoints("target")>=3 then CastSpellByName("Eviscerate()"); end
 /run if UnitIsUnit('player', 'targettarget') then CastSpellByName("Ghostly Strike()"); en﻿d
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
 /run if (SnD and (IsUsableAction(60) and(UnitMana("Player")>=10))) then CastSpellByName("Surprise Attack()"); elseif SnD then CastSpellByName("Sinister Strike()"); else CastSpellByName("Slice and Dice()"); end
-/run for z=1,172 do if IsAttackAction(z)athen if not IsCurrentAction(z)then UseAction(z);end;end;end;
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Heartstriker") )then PickupContainerItem(b,s)EquipCursorItem(18)end end end
 ```
 /run for i=0,31 do local id,cancel = GetPlayerBuff(i,"HELPFUL|HARMFUL|PASSIVE"); if(id > -1) then local timeleft = GetPlayerBuffTimeLeft(id); DEFAULT_CHAT_FRAME:AddMessage(timeleft); end end
