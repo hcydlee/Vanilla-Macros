@@ -59,7 +59,7 @@ Kinda Interessting Idea.
 ## To Fit Turtle WOW, Superise Attack if possible. 
 ```
 /run SnD=false for i=1,32,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
-/run if GetComboPoints("target")==5 then CastSpellByName("Eviscerate()"); end
+/run if GetComboPoints("target")>=3 then CastSpellByName("Eviscerate()"); end
 /run if IsUsableAction(60) then CastSpellByName("Surprise Attack()"); end
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
 /run if (SnD and (IsUsableAction(60) and(UnitMana("Player")>=10))) then CastSpellByName("Surprise Attack()"); elseif SnD then CastSpellByName("Sinister Strike()"); else CastSpellByName("Slice and Dice()"); end
