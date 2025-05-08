@@ -56,11 +56,14 @@ Kinda Interessting Idea.
 
 
 ## Rotation to refresh SliceDice if <1s.  If ComboPoints >=3, Cast Eviscerate. 
-## To Fit Turtle WOW, Superise Attack if possible. 
+## To Fit Turtle WOW, Superise Attack if possible. If target's target is player, cast Ghostly Strike.
 ```
 /run SnD=false for i=1,32,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
-/run if GetComboPoints("target")>=3 then CastSpellByName("Eviscerate()"); end
+/run for i=0,31 do local id,cancel = GetPlayerBuff(i,"HELPFUL"); if(id > -1 & string.find(id,"SliceDice") then local SDT = GetPlayerBuffTimeLeft(id); end end
+/run if GetComboPoints("target")>0  and SDT <=1 then CastSpellByName("Slice and Dice()"); end
 /run if IsUsableAction(60) then CastSpellByName("Surprise Attack()"); end
+/run if GetComboPoints("target")>=3 then CastSpellByName("Eviscerate()"); end
+/run if UnitIsUnit('player', 'targettarget') then CastSpellByName("Ghostly Strike()"); en﻿d
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
 /run if (SnD and (IsUsableAction(60) and(UnitMana("Player")>=10))) then CastSpellByName("Surprise Attack()"); elseif SnD then CastSpellByName("Sinister Strike()"); else CastSpellByName("Slice and Dice()"); end
 /run for z=1,172 do if IsAttackAction(z)athen if not IsCurrentAction(z)then UseAction(z);end;end;end;
