@@ -53,3 +53,11 @@ This Rotation is only desired to keep every debuff on the Enemy up, aswell SnD o
 Kinda Interessting Idea.
 
 -- Request from LoGyMW --
+
+
+## Rotation to refresh SliceDice if <1s.  If ComboPoints >=3, Cast Eviscerate. 
+## To Fit Turtle WOW, Superise Attack if possible. 
+
+
+
+
