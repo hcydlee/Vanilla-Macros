@@ -60,7 +60,6 @@ Kinda Interessting Idea.
 
 ```
 /run SnD=false for i=1,32,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
-/run HoS=false for i=1,32,1 do dbh=UnitBuff("player",i) if(dbh~=nil and string.find(db,"Holy Strength")) then HoS=true end end
 /run BlF=false for i=1,32,1 do gpb1=GetPlayerBuff(i,"HELPFUL"); if not (gpb1 == -1) and (strfind(GetPlayerBuffTexture(gpb1), "Ability_Warrior_PunishingBlow")) then BlF=true end end
 /run SDT=0 for i=1,32,1 do local id,cancel = GetPlayerBuff(i,"HELPFUL"); if(id > -1 & strfind(GetPlayerBuffTexture(id),"Ability_Rogue_SliceDice") then SDT = GetPlayerBuffTimeLeft(id);DEFAULT_CHAT_FRAME:AddMessage(SDT);  end end
 /run for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z);end;end;end;
@@ -69,10 +68,10 @@ Kinda Interessting Idea.
 /run if GetComboPoints("target")>=3 and SDT>1 then CastSpellByName("Eviscerate()"); end
 /run if UnitIsUnit('player', 'targettarget') then CastSpellByName("Ghostly Strike()"); en﻿d
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
+/run if UnitMana("Player")>=60 then CastSpellByName("Sinister Strike()"); end
 /run if (SnD and (IsUsableAction(60) and(UnitMana("Player")>=10))) then CastSpellByName("Surprise Attack()"); elseif SnD then CastSpellByName("Sinister Strike()"); else CastSpellByName("Slice and Dice()"); end
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Thistle Tea")) and BlF and UnitMana("Player")<=15 then UseContainerItem(b,s)SpellTargetUnit("player")end end end
 /run if BlF then CastSpellByName("Adrenaline Rush()");CastSpellByName("Perception(Racial)");UseInventoryItem(13);UseInventoryItem(14);end
-/run if HoS then UseInventoryItem(13);UseInventoryItem(14);end
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Heartstriker") )then PickupContainerItem(b,s)EquipCursorItem(18)end end end
 ```
 /run for i=0,31 do local id,cancel = GetPlayerBuff(i,"HELPFUL|HARMFUL|PASSIVE"); if(id > -1) then local timeleft = GetPlayerBuffTimeLeft(id); DEFAULT_CHAT_FRAME:AddMessage(timeleft); end end
