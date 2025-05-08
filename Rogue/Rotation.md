@@ -69,6 +69,7 @@ Kinda Interessting Idea.
 /run if UnitIsUnit('player', 'targettarget') then CastSpellByName("Ghostly Strike()"); en﻿d
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
 /run if (SnD and (IsUsableAction(60) and(UnitMana("Player")>=10))) then CastSpellByName("Surprise Attack()"); elseif SnD then CastSpellByName("Sinister Strike()"); else CastSpellByName("Slice and Dice()"); end
+/run if BlF then CastSpellByName("Adrenaline Rush()");UseInventoryItem(13);UseInventoryItem(14);end
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Thistle Tea")) and BlF and UnitMana("Player")<=15 then UseContainerItem(b,s)SpellTargetUnit("player")end end end
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Heartstriker") )then PickupContainerItem(b,s)EquipCursorItem(18)end end end
 ```
