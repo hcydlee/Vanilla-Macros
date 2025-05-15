@@ -61,29 +61,32 @@ Kinda Interessting Idea.
 ```
 /run SnD=false for i=1,32,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
 /run BlF=false for i=1,32,1 do gpb1=GetPlayerBuff(i,"HELPFUL"); if not (gpb1 == -1) and (strfind(GetPlayerBuffTexture(gpb1), "Ability_Warrior_PunishingBlow")) then BlF=true end end
+/run AlR=false for i=1,32,1 do gpb2=GetPlayerBuff(i,"HELPFUL"); if not (gpb2 == -1) and (strfind(GetPlayerBuffTexture(gpb2), "Spell_Shadow_Shadowworddominate")) then AlR=true end end
+
 /run for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z);end;end;end;
-/run if GetComboPoints("target")>0 and (not SnD) then CastSpellByName("Slice and Dice()"); end
-/run if IsUsableAction(60) and SnD then CastSpellByName("Surprise Attack()"); end
-/run if GetComboPoints("target")>=3 and SnD then CastSpellByName("Eviscerate()"); end
-/run if UnitIsUnit('player', 'targettarget') then CastSpellByName("Ghostly Strike()"); en﻿d
+
+/script local f,s=0,0 for i=1,32 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (f==0 or s<1) and GetComboPoints("target")>0  then CastSpellByName("Slice and Dice") end
+
+/run if GetComboPoints("target")>4 and SnD then CastSpellByName("Eviscerate()"); end
+/run if IsUsableAction(60) then CastSpellByName("Surprise Attack()"); end
+
+/script for i=1,32 do local b=GetPlayerBuff(i);if b>=0 then t=GetPlayerBuffTexture(b);if strfind(t,"SliceDice")then s=GetPlayerBuffTimeLeft(b);if s>1 and GetComboPoints("target")>3 then CastSpellByName("Eviscerate()");end;end;end;end
+
+
+/run if UnitIsUnit('player', 'targettarget') then CastSpellByName("Ghostly Strike()"); end
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
-/run if UnitMana("Player")>=60 then CastSpellByName("Sinister Strike()"); end
+/run if UnitMana("Player")>=40 then CastSpellByName("Sinister Strike()"); end
+
 /run if (SnD and (IsUsableAction(60) and(UnitMana("Player")>=10))) then CastSpellByName("Surprise Attack()"); elseif SnD then CastSpellByName("Sinister Strike()"); else CastSpellByName("Slice and Dice()"); end
+
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Thistle Tea")) and BlF and UnitMana("Player")<=15 then UseContainerItem(b,s)SpellTargetUnit("player")end end end
-/run if BlF then CastSpellByName("Adrenaline Rush()");CastSpellByName("Perception(Racial)");UseInventoryItem(13);UseInventoryItem(14);end
+/run if AlR then CastSpellByName("Perception(Racial)"); UseInventoryItem(13);UseInventoryItem(14);end
+/run if BlF then UseInventoryItem(13);UseInventoryItem(14);end
+
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.50 and strfind(n,"Healthstone") then UseContainerItem(b,s,1)end end end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.45 and (strfind(n,"Nordanaar Herbal Tea") or strfind(n,"Tea with Sugar"))then UseContainerItem(b,s,1)end end end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.40 and  strfind(n,"Healing Potion")then UseContainerItem(b,s,1)end end end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.35 and (strfind(n,"Whipper Root Tuber") or strfind(n,"Night Dragon's Breath"))then UseContainerItem(b,s,1)end end end
+
 
 ```
-/run for i=0,31 do local id,cancel = GetPlayerBuff(i,"HELPFUL|HARMFUL|PASSIVE"); if(id > -1) then local timeleft = GetPlayerBuffTimeLeft(id); DEFAULT_CHAT_FRAME:AddMessage(timeleft); end end
-
-/run local i=0 g=GetPlayerBuff while not(g(i) == -1)do if(strfind(GetPlayerBuffTexture(g(i)), "Ability_Warrior_PunishingBlow"))then CancelPlayerBuff(g(i))end i=i+1 end
-
-CancelPlayerBuff(buffIndex)   - Removes a specific buff from the player.
-CancelTrackingBuff()   - Cancels your current tracking buff (Find Minerals etc.)
-GetPlayerBuff(buffId, buffFilter)   - Retrieves info about a certain effect (beneficial, harmful or passive)
-GetPlayerBuffApplications(buffIndex)   - Retrieves the number of applications of a debuff or buff.
-GetPlayerBuffDispelType(buffIndex)   - Get the debuff type for a player debuff ("Magic", "Curse", "Disease", or "Poison")
-GetPlayerBuffTexture(buffIndex)   - Retrieves the texture identifier for a certain buff
-GetPlayerBuffTimeLeft(buffIndex)   - Retrieves how long a buff will last before expiring
-GetWeaponEnchantInfo()   - Return information about main and offhand weapon enchantments.
-UnitBuff("unit", index[, showCastable])   - Retrieves info about a buff of a certain unit.
-UnitDebuff("unit", index[, showDispellable])   - Retrieves info about a debuff of a certain unit.
