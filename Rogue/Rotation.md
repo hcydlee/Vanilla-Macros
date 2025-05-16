@@ -64,7 +64,6 @@ Kinda Interessting Idea.
 
 /run if UnitHealth("target")==0 and UnitExists("target") then ClearTarget(); end
 /run if GetUnitName("target")==nil then TargetNearestEnemy(); end
-/run if CheckInteractDistance("target", 3) then AttackTarget() else TargetNearestEnemy() end
 
 /run for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z);end;end;end;
 
@@ -77,6 +76,8 @@ Kinda Interessting Idea.
 
 
 /run if UnitIsUnit('player', 'targettarget') then CastSpellByName("Ghostly Strike()"); end
+/script if UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" then CastSpellByName("Vanish") end
+
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
 /run if UnitMana("Player")>=40 then CastSpellByName("Sinister Strike()"); end
 
