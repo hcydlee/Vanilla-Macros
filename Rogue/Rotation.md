@@ -55,8 +55,8 @@ Kinda Interessting Idea.
 -- Request from LoGyMW --
 
 
-## Rotation to refresh SliceDice if <1s.  If ComboPoints >=3, Cast Eviscerate. 
-## To Fit Turtle WOW, Superise Attack if possible. If target's target is player, cast Ghostly Strike. If Blade Flurry, and energy low, use Tea.
+## Rotation to refresh SliceDice if <1s.  5 CPs eveiscerate. 
+## To Fit Turtle WOW, Superise Attack if possible. if 3+ CPs, and SliceDice >1, without SA, then eviscerate. If target's target is player, cast Ghostly Strike. If Blade Flurry, and energy low, use Tea, use Juju Flurry and trinket. Low health, use healthstone, tea with sugar, healing potion, whipper root tuber accordingly. 
 
 ```
 /run SnD=false for i=1,32,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
