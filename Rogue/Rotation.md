@@ -75,8 +75,8 @@ Kinda Interessting Idea.
 /script for i=1,32 do local b=GetPlayerBuff(i);if b>=0 then t=GetPlayerBuffTexture(b);if strfind(t,"SliceDice")then s=GetPlayerBuffTimeLeft(b);if s>1 and GetComboPoints("target")>3 then CastSpellByName("Eviscerate()");end;end;end;end
 
 
-/run if UnitIsUnit('player', 'targettarget') then CastSpellByName("Ghostly Strike()"); end
-/script if UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" then CastSpellByName("Vanish") end
+/run if UnitExists("target") and UnitIsUnit('player', 'targettarget') and not (UnitClassification("target") == "worldboss") then CastSpellByName("Ghostly Strike()"); end
+/script if UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" then CastSpellByName("Vanish"); end
 
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
 /run if UnitMana("Player")>=40 then CastSpellByName("Sinister Strike()"); end
