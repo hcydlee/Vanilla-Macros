@@ -97,8 +97,14 @@ Kinda Interessting Idea.
 
 
 
+```
 
 
+
+```
+
+
+/script local found,duration=0,0 for i=0,15 do local b=GetPlayerBuff(i,"HELPFUL") if b>=0 then local t=GetPlayerBuffTexture(b) if t and string.find(t,"SliceDice") then found=1 duration=GetPlayerBuffTimeLeft(b) break end end end if (found==0 or (duration and duration<1.5)) and GetComboPoints()>0 and UnitAffectingCombat("player") then CastSpellByName("Slice and Dice") end
 
 
 ```
