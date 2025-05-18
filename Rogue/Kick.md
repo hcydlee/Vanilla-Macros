@@ -26,4 +26,6 @@ Kick in melee range, else throw. +say
 ```
 /script local u = UnitExists("mouseover") and "mouseover" or "target"; if UnitExists(u) and UnitCanAttack("player",u) then if CheckInteractDistance(u, 3) or IsSpellInRange("Kick", u) == 1 then CastSpellByName("Kick"); else CastSpellByName("Deadly Throw"); end; end;end;
 
+
+/script local u=UnitExists("mouseover"); if u then TargetUnit("mouseover") if CheckInteractDistance(u, 3) or IsSpellInRange("Kick", u) == 1 then CastSpellByName("Kick"); else CastSpellByName("Deadly Throw") end; TargetLastTarget();end; end;
 ```
