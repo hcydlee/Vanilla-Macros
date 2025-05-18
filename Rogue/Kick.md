@@ -24,8 +24,16 @@ With 7 The channel for posting (1 = general, 2 = trade, say, yell, party, raid, 
 Kick in melee range, else throw. +say 
 
 ```
-/script local u = UnitExists("mouseover") and "mouseover" or "target"; if UnitExists(u) and UnitCanAttack("player",u) then if CheckInteractDistance(u, 3) or IsSpellInRange("Kick", u) == 1 then CastSpellByName("Kick"); else CastSpellByName("Deadly Throw"); end; end;end;
+/run for i=0,4 do for j=1,GetContainerNumSlots(i) do if GetContainerItemLink(i,j) then if string.find(GetContainerItemLink(i,j),"Assassin's Throwing Axe") then PickupContainerItem(i,j) AutoEquipCursorItem(18) break end end end end
 
+/script local u = UnitExists("mouseover") and "mouseover" or "target";
+/script if UnitExists(u) and UnitCanAttack("player",u) then
+/script if CheckInteractDistance(u, 3) or IsSpellInRange("Kick", u) == 1 then
+/run CastSpellByName("Kick"); TargetLastTarget();
+/script else 
+/run CastSpellByName("Deadly Throw");  TargetLastTarget();
+/script end end
 
-/script local u=UnitExists("mouseover"); if u then TargetUnit("mouseover") if CheckInteractDistance(u, 3) or IsSpellInRange("Kick", u) == 1 then CastSpellByName("Kick"); else CastSpellByName("Deadly Throw") end; TargetLastTarget();end; end;
+/run if not TeM then TeM = GetTime() + 10 end if GetTime() > TeM then SendChatMessage("%t Kicked","SAY") TeM = nil end
+
 ```
