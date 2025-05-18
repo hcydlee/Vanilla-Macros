@@ -16,3 +16,8 @@ uses Backstab if target is found, or uses pick pocket then target mouseover if o
 ```
 /run if UnitExists("target") then CastSpellByName("Backstab") elseif UnitExists("mouseover") then SpellTargetUnit("mouseover") TargetUnit("mouseover") CastSpellByName("Pick Pocket")end
 ```
+
+
+```
+/run if UnitExists("mouseover")then TargetUnit("mouseover") CastSpellByName("Pick Pocket") TargetLastTarget() else CastSpellByName("Pick Pocket") end
+```
