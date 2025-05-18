@@ -30,3 +30,9 @@ Spammable Auto Attack Macro w/ Melee and Ranged swapping
 ```
 /run if CheckInteractDistance("target", 3) and (not PlayerFrame.inCombat) then AttackTarget() else CastSpellByName("Throw") end
 ```
+equip gun and shoot. 
+```
+/run for i=0,4 do for j=1,GetContainerNumSlots(i) do if GetContainerItemLink(i,j) then if string.find(GetContainerItemLink(i,j),"Larvae of the Great Worm") then PickupContainerItem(i,j) AutoEquipCursorItem(18) break end end end end
+
+/run local _,_,i=strfind(GetInventoryItemLink("player",18),"\124Hitem:(%d+)")local _,_,_,_,_,p=GetItemInfo(i)local t={}t.Bows="Bow"t.Guns="Gun"t.Crossbows="Crossbow"t.Thrown="Throw"CastSpellByName((string.gsub(t[p],"^([^T])","Shoot %1")))
+```
