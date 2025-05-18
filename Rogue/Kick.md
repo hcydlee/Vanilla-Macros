@@ -25,8 +25,7 @@ Kick in melee range, else throw. +say
 
 ```
 /run for i=0,4 do for j=1,GetContainerNumSlots(i) do if GetContainerItemLink(i,j) then if string.find(GetContainerItemLink(i,j),"Assassin's Throwing Axe") then PickupContainerItem(i,j) AutoEquipCursorItem(18) break end end end end
-
-
+/run if CheckInteractDistance("target",3) then CastSpellByName("Kick") else CastSpellByName("Deadly Throw"); end 
 /run if not TeM then TeM = GetTime() + 10 end if GetTime() > TeM then SendChatMessage("%t Kicked","SAY") TeM = nil end
 
 ```
