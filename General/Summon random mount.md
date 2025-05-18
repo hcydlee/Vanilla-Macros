@@ -9,3 +9,9 @@
 /run local i=0 g=GetPlayerBuff while not(g(i) == -1)do if(strfind(GetPlayerBuffTexture(g(i)), "Ability_Mount"))then CancelPlayerBuff(g(i))end i=i+1 end
 /run UseContainerItem(0,math.random(1,4));
 ```
+Summon Tank in TAQ, summon others normal 
+
+```
+/script  local z=GetZoneText() if z=="Temple of Ahn'Qiraj" or z=="Ruins of Ahn'Qiraj" then CastSpellByName("Green Qiraji Battle Tank") else CastSpellByName("White Stallion") end
+
+```
