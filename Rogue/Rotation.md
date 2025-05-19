@@ -97,15 +97,15 @@ Kinda Interessting Idea.
 
 ```
 
-slice & dice
+## slice & dice
 ```
 
 
-/script local found,duration=0,0 for i=0,15 do local b=GetPlayerBuff(i,"HELPFUL") if b>=0 then local t=GetPlayerBuffTexture(b) if t and string.find(t,"SliceDice") then found=1 duration=GetPlayerBuffTimeLeft(b) break end end end if (found==0 or (duration and duration<1.5)) and GetComboPoints()>0 and UnitAffectingCombat("player") then CastSpellByName("Slice and Dice") end
+/script local found,duration=0,0 for i=0,31 do local b=GetPlayerBuff(i,"HELPFUL") if b>=0 then local t=GetPlayerBuffTexture(b) if t and string.find(t,"SliceDice") then found=1 duration=GetPlayerBuffTimeLeft(b) break end end end if (found==0 or (duration and duration<1.5)) and GetComboPoints()>0 and UnitAffectingCombat("player") then CastSpellByName("Slice and Dice") end
 
 
 ```
-Hemorrhage rotation
+## Hemorrhage rotation
 
 ```
 /run SnD=false for i=0,31,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
@@ -142,7 +142,7 @@ Hemorrhage rotation
 
 ```
 
-战斗单刷
+## 战斗单刷
 ```
 /run SnD=false for i=0,31,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
 /run BlF=false for i=0,31,1 do gpb1=GetPlayerBuff(i,"HELPFUL"); if not (gpb1 == -1) and (strfind(GetPlayerBuffTexture(gpb1), "Ability_Warrior_PunishingBlow")) then BlF=true end end
