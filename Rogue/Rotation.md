@@ -1,6 +1,6 @@
 ## A simple Rotation
 ```
-/run SnD=false for i=1,16,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
+/run SnD=false for i=0,31,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
 /run if GetComboPoints("target")==5 then CastSpellByName("Eviscerate()");elseif SnD then CastSpellByName("Sinister Strike()");elseif GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); else CastSpellByName("Slice and Dice()"); end
 ```
 it Checks if Slice and Dice is up, if not he casts slice and dice.
@@ -13,8 +13,8 @@ you als no need SuperMacro because it exceeds the 255 char limit
 
 ## Improved Rotation
 ```
-/run RuP=false for r=1,16,1 do db=UnitDebuff("target",r) if(db~=nil and string.find(db,"Rupture")) then RuP=true end end
-/run SnD=false for i=1,16,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
+/run RuP=false for r=0,31,1 do db=UnitDebuff("target",r) if(db~=nil and string.find(db,"Rupture")) then RuP=true end end
+/run SnD=false for i=0,31,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
 /run if GetComboPoints("target")==5 then CastSpellByName("Eviscerate()"); end
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
 /run if SnD then CastSpellByName("Sinister Strike()"); else CastSpellByName("Slice and Dice()"); end
@@ -30,7 +30,7 @@ If you actually combine this macro with "IsUsableSpell" and insert a spellreacti
 
 ## Ambush, Coldblood & eviscerate
 ```
-/run Stl=false for i=1,16 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"Stealth")) then Stl=true end end
+/run Stl=false for i=0,31 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"Stealth")) then Stl=true end end
 /script if Stl then CastSpellByName("Ambush()"); elseif not Stl then CastSpellByName("Cold Blood()"); elseif GetComboPoints("target")<0 then CastSpellByName("Eviscerate()"); end
 ```
 After using Ambush, instant pop Cold Blood and do eviscerate. Normaly i would like to add Trinkets like the AQ40 trashmob trinket or Ramsteins L Bolt trinket in order to make a oneshot macro, but since i dont have these items, it wont happen :3
@@ -40,9 +40,9 @@ After using Ambush, instant pop Cold Blood and do eviscerate. Normaly i would li
 
 ## Rotation to keep every debuff on the Enemy up
 ```
-/run SnD=false for i=1,32,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
-/run RuP=false for r=1,16,1 do ddb1=UnitDebuff("target",r) if(ddb1~=nil and string.find(ddb1,"Rupture")) then RuP=true end end
-/run ExP=False for e=1,16,1 do ddb2=UnitDebuff("target",e) if(ddb2~=nil and string.find(ddb2,"Warrior_Riposte")) then ExP=true end end
+/run SnD=false for i=0,31,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
+/run RuP=false for r=0,31,1 do ddb1=UnitDebuff("target",r) if(ddb1~=nil and string.find(ddb1,"Rupture")) then RuP=true end end
+/run ExP=False for e=0,31,1 do ddb2=UnitDebuff("target",e) if(ddb2~=nil and string.find(ddb2,"Warrior_Riposte")) then ExP=true end end
 /script AttackTarget();
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
 /run if SnD then CastSpellByName("Sinister Strike()"); else CastSpellByName("Slice and Dice()"); end
