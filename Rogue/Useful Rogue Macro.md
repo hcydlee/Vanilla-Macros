@@ -65,6 +65,14 @@
 /script CN=CastSpellByName; CN("Cold Blood"); SpellStopCasting(); if (GetComboPoints()>= 3) then CN("Eviscerate(Rank 8)");end
 ```
 
+## Ghostly Strike
+
+```
+/run for i=0,4 do for j=1,GetContainerNumSlots(i) do if GetContainerItemLink(i,j) then if string.find(GetContainerItemLink(i,j),"Dragonbreath Hand Cannon") then PickupContainerItem(i,j) AutoEquipCursorItem(18) break end end end end
+/Cast Ghostly Strike
+
+```
+
 
 ## Todo:
 
