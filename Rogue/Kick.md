@@ -29,3 +29,8 @@ Kick in melee range, else throw. +say
 /run if not TeM then TeM = GetTime() + 10 end if GetTime() > TeM then SendChatMessage("%t Kicked","SAY") TeM = nil end
 
 ```
+
+Mouseover interrupt
+```
+/run if UnitExists("mouseover") then TargetUnit("mouseover") if CheckInteractDistance("target",3) then CastSpellByName("Kick") else CastSpellByName("Deadly Throw"); end; TargetLastTarget(); else CastSpellByName("Kick") end;
+```
