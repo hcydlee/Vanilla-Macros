@@ -178,5 +178,43 @@ Kinda Interessting Idea.
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.35 and (strfind(n,"Whipper Root Tuber") or strfind(n,"Night Dragon's Breath"))then UseContainerItem(b,s,1)end end end
 
 ```
+## 血腥战斗
+```
+/run SnD=false for i=0,31,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
+/run ToB=false for i=0,31,1 do db1=UnitBuff("player",i) if(db1~=nil and string.find(db1,"Bone")) then ToB=true end end
+/run BlF=false for i=0,31,1 do gpb1=GetPlayerBuff(i,"HELPFUL"); if not (gpb1 == -1) and (strfind(GetPlayerBuffTexture(gpb1), "Ability_Warrior_PunishingBlow")) then BlF=true end end
+
+/run if UnitHealth("target")==0 and UnitExists("target") then ClearTarget(); end
+/run if GetUnitName("target")==nil then UnitXP("target", "nextEnemyConsideringDistance");end
+/run if GetUnitName("target")==nil then TargetNearestEnemy(); end
+
+/run for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z);end;end;end;
+
+/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (f==0 or s<1) and GetComboPoints("target")>0  then CastSpellByName("Slice and Dice") end
+
+/run if not ToB  then  CastSpellByName("Rupture()"); end
+
+/run if GetComboPoints("target")>4 and SnD and ToB then CastSpellByName("Eviscerate()"); end
+/run if IsUsableAction(60) then CastSpellByName("Surprise Attack()"); end
+
+/run if (ToB and SnD and (IsUsableAction(60) and(UnitMana("Player")>=10))) then CastSpellByName("Surprise Attack()"); elseif SnD and ToB then CastSpellByName("Sinister Strike()"); elseif not SnD then CastSpellByName("Slice and Dice()"); elseif not ToB then  CastSpellByName("Rupture()"); end
+/script for i=0,31 do local b=GetPlayerBuff(i);if b>=0 then t=GetPlayerBuffTexture(b);if strfind(t,"SliceDice")then s=GetPlayerBuffTimeLeft(b);if s>1 and GetComboPoints("target")>3 and ToB then CastSpellByName("Eviscerate()");end;end;end;end
 
 
+/run if UnitExists("target") and UnitIsUnit('player', 'targettarget') and not (UnitClassification("target") == "worldboss") then CastSpellByName("Ghostly Strike()"); end
+/script if UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" then CastSpellByName("Vanish"); end
+
+/run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
+/run if UnitMana("Player")>=40 then CastSpellByName("Sinister Strike()"); end
+
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Thistle Tea")) and BlF and UnitMana("Player")<=15 then UseContainerItem(b,s)SpellTargetUnit("player")end end end
+
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Juju Flurry")) and BlF  then UseContainerItem(b,s)SpellTargetUnit("player")end end end
+
+/run if BlF then UseInventoryItem(13);UseInventoryItem(14);end
+
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.50 and strfind(n,"Healthstone") then UseContainerItem(b,s,1)end end end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.45 and (strfind(n,"Nordanaar Herbal Tea") or strfind(n,"Tea with Sugar"))then UseContainerItem(b,s,1)end end end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.40 and  strfind(n,"Healing Potion")then UseContainerItem(b,s,1)end end end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.35 and (strfind(n,"Whipper Root Tuber") or strfind(n,"Night Dragon's Breath"))then UseContainerItem(b,s,1)end end end
+```
