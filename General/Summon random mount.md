@@ -12,6 +12,6 @@
 Summon Tank in TAQ, summon others normal 
 
 ```
-/script  local z=GetZoneText() if z=="Temple of Ahn'Qiraj" or z=="Ruins of Ahn'Qiraj" then CastSpellByName("Green Qiraji Battle Tank") else CastSpellByName("White Stallion") end
+/script  local z=GetZoneText() if z=="Ahn'Qiraj" then CastSpellByName("Green Qiraji Battle Tank") else CastSpellByName("White Stallion") end
 
 ```
