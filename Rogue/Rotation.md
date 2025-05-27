@@ -240,8 +240,7 @@ Kinda Interessting Idea.
 
 /script if UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" then CastSpellByName("Vanish"); end
 
-/run if GetComboPoints("target")==0 then CastSpellByName("Ambush()"); end
-/run if UnitMana("Player")>=60 then CastSpellByName("Backstab()"); end
+/run if GetBonusBarOffset() == 1 then CastSpellByName("Ambush") elseif GetComboPoints()>4 then CastSpellByName("Eviscerate") else CastSpellByName("Backstab")end
 
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Thistle Tea")) and BlF and UnitMana("Player")<=15 then UseContainerItem(b,s)SpellTargetUnit("player")end end end
 
