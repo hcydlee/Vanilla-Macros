@@ -253,7 +253,7 @@ Kinda Interessting Idea.
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.40 and  strfind(n,"Healing Potion")then UseContainerItem(b,s,1)end end end
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.35 and (strfind(n,"Whipper Root Tuber") or strfind(n,"Night Dragon's Breath"))then UseContainerItem(b,s,1)end end end
 ```
-##2星剔骨
+##血腥锤爪匕2星剔骨
 
 
 ```
