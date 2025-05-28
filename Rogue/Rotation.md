@@ -272,7 +272,7 @@ Kinda Interessting Idea.
 /run if not ToB  then  CastSpellByName("Rupture()"); end
 
 /run if GetComboPoints("target")>4 then CastSpellByName("Eviscerate()"); end
-/run if IsUsableAction(60) then CastSpellByName("Surprise Attack()"); end
+/run if IsUsableAction(60) and UnitMana("Player") <81 then CastSpellByName("Surprise Attack()"); end
 /run if GetComboPoints("target")>1 then CastSpellByName("Eviscerate()"); end
 
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
