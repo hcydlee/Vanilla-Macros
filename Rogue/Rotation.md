@@ -61,7 +61,7 @@ Kinda Interessting Idea.
 ```
 /run SnD=false for i=0,31,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
 /run BlF=false for i=0,31,1 do gpb1=GetPlayerBuff(i,"HELPFUL"); if not (gpb1 == -1) and (strfind(GetPlayerBuffTexture(gpb1), "Ability_Warrior_PunishingBlow")) then BlF=true end end
-/run AdR=false for i=0,31,1 do gpb2=GetPlayerBuff(i,"HELPFUL"); if not (gpb2 == -1) and (strfind(GetPlayerBuffTexture(gpb2), "Ability_Rogue_AdrenalineRush")) then AdR=true end end
+/run AdR=false for i=0,31,1 do gpb2=GetPlayerBuff(i,"HELPFUL"); if not (gpb2 == -1) and (strfind(GetPlayerBuffTexture(gpb2), "Spell_Shadow_ShadowWordDominate")) then AdR=true end end
 
 
 /run if UnitHealth("target")==0 and UnitExists("target") then ClearTarget(); end
