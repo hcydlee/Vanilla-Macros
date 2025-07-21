@@ -307,7 +307,7 @@ Kinda Interessting Idea.
 ## 优化系统占用简单版
 ```
 
-/run for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z);end;end;end;
+/run for z=13,24 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z);end;end;end;
 /script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (f==0 or s<1) and GetComboPoints("target")>0  then CastSpellByName("Slice and Dice") end
 /run if GetComboPoints("target")>3 then CastSpellByName("Eviscerate()"); end
 /cast Surprise Attack
