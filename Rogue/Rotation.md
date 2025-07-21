@@ -84,6 +84,8 @@ Kinda Interessting Idea.
 
 
 /run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
+/run if UnitExists("target") and not (UnitClassification("target") == "worldboss") and UnitHealth("target")/UnitHealthMax("target") <0.25 then CastSpellByName("Sinister Strike()"); end
+/run if UnitExists("target") and (UnitClassification("target") == "worldboss") and UnitHealth("target")/UnitHealthMax("target") <0.10 then CastSpellByName("Sinister Strike()"); end
 /run if UnitMana("Player")>59 then CastSpellByName("Sinister Strike()"); end
 
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Thistle Tea")) and BlF and UnitMana("Player")<=15 then UseContainerItem(b,s)SpellTargetUnit("player")end end end
