@@ -1,5 +1,5 @@
 # New Turtle WoW Rogue Rotation Macros.
-## To Fit Turtle WOW, Superise Attack if possible. if 3+ CPs, and SliceDice >1, without SA, then eviscerate. If target's target is player, cast Ghostly Strike. If Blade Flurry, and energy low, use Tea, use Juju Flurry and trinket. Low health, use healthstone, tea with sugar, healing potion, whipper root tuber accordingly. 
+## Superise Attack if possible. If target's target is player, cast Ghostly Strike. If Blade Flurry, and energy low, use Tea, use Juju Flurry and trinket. Low health, use healthstone,healing potion, tea with sugar,  whipper root tuber accordingly. 
 
 ```
 /run SnD=false for i=0,31,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
@@ -12,24 +12,20 @@
 
 /run for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z);end;end;end;
 
-/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (f==0 or s<1) and GetComboPoints("target")>0  then CastSpellByName("Slice and Dice") end
+/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (f==0 or s<2)  then CastSpellByName("Slice and Dice") end
 
-/run if GetComboPoints("target")>3 and SnD then CastSpellByName("Eviscerate()"); end
+/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (not AdR) and s>10 and GetComboPoints("target")>2   then CastSpellByName("Eviscerate()") end
 
-/run if IsUsableAction(60) and AdR and UnitMana("Player")<61 then CastSpellByName("Surprise Attack()"); end
+/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if AdR and s>4 and GetComboPoints("target")>2   then CastSpellByName("Eviscerate()") end
+
 /run if IsUsableAction(60) and (not AdR) and UnitMana("Player")<81 then CastSpellByName("Surprise Attack()"); end
-
-/script for i=0,31 do local b=GetPlayerBuff(i);if b>=0 then t=GetPlayerBuffTexture(b);if strfind(t,"SliceDice")then s=GetPlayerBuffTimeLeft(b);if s>1 and GetComboPoints("target")>2 then CastSpellByName("Eviscerate()");end;end;end;end
+/run if IsUsableAction(60) and UnitMana("Player")<61 then CastSpellByName("Surprise Attack()"); end
 
 /run if UnitExists("target") and UnitIsUnit('player', 'targettarget') and not (UnitClassification("target") == "worldboss") then CastSpellByName("Ghostly Strike()"); end
-/script if UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" then CastSpellByName("Vanish"); end
-/run if UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" and GetSpellCooldown(67, "spell") >0 then CastSpellByName("Evasion"); end
+/script if UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" then CastSpellByName("Evasion"); end
 
-
-/run if GetComboPoints("target")==0 then CastSpellByName("Sinister Strike()"); end
-/run if UnitExists("target") and not (UnitClassification("target") == "worldboss") and UnitHealth("target")/UnitHealthMax("target") <0.25 then CastSpellByName("Sinister Strike()"); end
-/run if UnitExists("target") and (UnitClassification("target") == "worldboss") and UnitHealth("target")/UnitHealthMax("target") <0.10 then CastSpellByName("Sinister Strike()"); end
-/run if UnitMana("Player")>59 then CastSpellByName("Sinister Strike()"); end
+/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if s<10 and GetComboPoints("target")<5 then CastSpellByName("Sinister Strike()") end
+/cast Sinister Strike
 
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Thistle Tea")) and BlF and UnitMana("Player")<=15 then UseContainerItem(b,s)SpellTargetUnit("player")end end end
 
