@@ -12,11 +12,7 @@
 
 /run for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z);end;end;end;
 
-/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (f==0 or s<2)  then CastSpellByName("Slice and Dice") end
-
-/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (not AdR) and s>10 and GetComboPoints("target")>2   then CastSpellByName("Eviscerate()") end
-
-/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if AdR and s>4 and GetComboPoints("target")>2   then CastSpellByName("Eviscerate()") end
+/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (f==0 or s<2)  then CastSpellByName("Slice and Dice")  elseif (not AdR) and s>10 and GetComboPoints("target")>2   then CastSpellByName("Eviscerate()") elseif AdR and s>4 and GetComboPoints("target")>2   then CastSpellByName("Eviscerate()") end
 
 /run if IsUsableAction(60) and (not AdR) and UnitMana("Player")<81 then CastSpellByName("Surprise Attack()"); end
 /run if IsUsableAction(60) and UnitMana("Player")<61 then CastSpellByName("Surprise Attack()"); end
