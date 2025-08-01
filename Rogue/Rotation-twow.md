@@ -2,6 +2,7 @@
 ## Superise Attack if possible. If target's target is player, cast Ghostly Strike. If Blade Flurry, and energy low, use Tea, use Juju Flurry and trinket. Low health, use healthstone,healing potion, tea with sugar,  whipper root tuber accordingly. 
 
 ```
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (string.find(n,"Gressil, Dawn of Ruin") )then PickupContainerItem(b,s)EquipCursorItem(16)break end end end
 /run SnD=false for i=0,31,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
 /run BlF=false for i=0,31,1 do gpb1=GetPlayerBuff(i,"HELPFUL"); if not (gpb1 == -1) and (strfind(GetPlayerBuffTexture(gpb1), "Ability_Warrior_PunishingBlow")) then BlF=true end end
 /run AdR=false for i=0,31,1 do gpb2=GetPlayerBuff(i,"HELPFUL"); if not (gpb2 == -1) and (strfind(GetPlayerBuffTexture(gpb2), "Spell_Shadow_ShadowWordDominate")) then AdR=true end end
