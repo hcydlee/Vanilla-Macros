@@ -37,6 +37,7 @@
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.40 and (strfind(n,"Nordanaar Herbal Tea") or strfind(n,"Tea with Sugar"))then UseContainerItem(b,s)end end end
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.35 and (strfind(n,"Whipper Root Tuber"))then UseContainerItem(b,s)end end end
 
+
 ```
 
 ## slice & dice
@@ -184,10 +185,11 @@
 
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Limited Invulnerability Potion")) and UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" and GetSpellCooldown(45, "spell") >0 and UnitHealth("player")/UnitHealthMax("player") <0.80 then UseContainerItem(b,s)SpellTargetUnit("player")end end end
 
-/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.50 and strfind(n,"Healthstone") then UseContainerItem(b,s,1)end end end
-/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.45 and  strfind(n,"Healing Potion")then UseContainerItem(b,s,1)end end end
-/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.40 and (strfind(n,"Nordanaar Herbal Tea") or strfind(n,"Tea with Sugar"))then UseContainerItem(b,s,1)end end end
-/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.35 and (strfind(n,"Whipper Root Tuber") )then UseContainerItem(b,s,1)end end end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.50 and strfind(n,"Healthstone") then UseContainerItem(b,s)end end end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.45 and  strfind(n,"Healing Potion")then UseContainerItem(b,s)end end end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.40 and (strfind(n,"Nordanaar Herbal Tea") or strfind(n,"Tea with Sugar"))then UseContainerItem(b,s)end end end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.35 and (strfind(n,"Whipper Root Tuber"))then UseContainerItem(b,s)end end end
+
 ```
 
 ## 取消无用buff
