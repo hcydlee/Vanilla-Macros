@@ -170,7 +170,7 @@
 
 /run for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z);end;end;end;
 
-/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if f=0 then CastSpellByName("Slice and Dice") elseif s<2 and GetComboPoints("target")>4  then CastSpellByName("Slice and Dice") end
+/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f==1 s=GetPlayerBuffTimeLeft(b) end end end if f=0 then CastSpellByName("Slice and Dice") elseif s<2 and GetComboPoints("target")>4  then CastSpellByName("Slice and Dice") end
 
 /script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"Bone")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (f==0 or s<2) and GetComboPoints("target")>4  then CastSpellByName("Rupture()") end
 
