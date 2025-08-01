@@ -1,0 +1,3 @@
+-- In-game script to dump cooldown info for a spell by name
+/run for i=1,200 do local n, r = GetSpellName(i, "spell"); if n=="Evasion" then local s,d,e=GetSpellCooldown(i,"spell"); message(i); message(format("%s: Start=%.1f, Duration=%.1f", n,s,d)); end end
+/run if  GetSpellCooldown(45, "spell") >0 then CastSpellByName("Vanish"); end
