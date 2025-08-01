@@ -20,6 +20,8 @@
 
 /run if UnitExists("target") and UnitIsUnit('player', 'targettarget') and not (UnitClassification("target") == "worldboss") then CastSpellByName("Ghostly Strike()"); end
 /script if UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" then CastSpellByName("Evasion"); end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Limited Invulnerability Potion")) and UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" and GetSpellCooldown(45, "spell") >0 and UnitHealth("player")/UnitHealthMax("player") <0.80 then UseContainerItem(b,s)SpellTargetUnit("player")end end end
+
 
 /script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if s<10 and GetComboPoints("target")<5 then CastSpellByName("Sinister Strike()") end
 /cast Sinister Strike
