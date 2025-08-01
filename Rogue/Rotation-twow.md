@@ -160,9 +160,8 @@
 ## 毒伤匕首小红龙
 
 ```
-/run SnD=false for i=0,31,1 do db=UnitBuff("player",i) if(db~=nil and string.find(db,"SliceDice")) then SnD=true end end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (string.find(n,"Kingsfall") )then PickupContainerItem(b,s)EquipCursorItem(16)break end end end
 /run ToB=false for i=0,31,1 do db1=UnitBuff("player",i) if(db1~=nil and string.find(db1,"Bone")) then ToB=true end end
-/run BlF=false for i=0,31,1 do gpb1=GetPlayerBuff(i,"HELPFUL"); if not (gpb1 == -1) and (strfind(GetPlayerBuffTexture(gpb1), "Ability_Warrior_PunishingBlow")) then BlF=true end end
 
 /run if UnitHealth("target")==0 and UnitExists("target") then ClearTarget(); end
 /run if GetUnitName("target")==nil then UnitXP("target", "nextEnemyConsideringDistance");end
@@ -170,22 +169,20 @@
 
 /run for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z);end;end;end;
 
-/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (f==0 or s<2) and GetComboPoints("target")>4  then CastSpellByName("Slice and Dice") end
+/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"SliceDice")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if f=0 then CastSpellByName("Slice and Dice") elseif s<2 and GetComboPoints("target")>4  then CastSpellByName("Slice and Dice") end
 
-/run if not ToB & GetComboPoints("target")>4 then  CastSpellByName("Rupture()"); end
+/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"Bone")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (f==0 or s<2) and GetComboPoints("target")>4  then CastSpellByName("Rupture()") end
 
-/run if GetComboPoints("target")>4 and SnD and ToB then CastSpellByName("Eviscerate()"); end
-/run if IsUsableAction(60) then CastSpellByName("Surprise Attack()"); end
+/script local f,s=0,0 for i=0,31 do b=GetPlayerBuff(i) if b>=0 then t=GetPlayerBuffTexture(b) if strfind(t,"Envenom")then f=1 s=GetPlayerBuffTimeLeft(b) end end end if (f==0 or s<2) and GetComboPoints("target")>4  then CastSpellByName("Envenom") end
 
-/script if UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" then CastSpellByName("Vanish"); end
+
+/run if GetComboPoints("target")>3 then CastSpellByName("Eviscerate()"); end
 
 /run if GetBonusBarOffset() == 1 then CastSpellByName("Ambush") elseif GetComboPoints()>4 then CastSpellByName("Eviscerate") else CastSpellByName("Backstab")end
 
-/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Thistle Tea")) and BlF and UnitMana("Player")<=15 then UseContainerItem(b,s)SpellTargetUnit("player")end end end
+/script if UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" then CastSpellByName("Evasion"); end
 
-/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Juju Flurry")) and BlF  then UseContainerItem(b,s)SpellTargetUnit("player")end end end
-
-/run if BlF then UseInventoryItem(13);UseInventoryItem(14);end
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and (strfind(n,"Limited Invulnerability Potion")) and UnitExists("target") and UnitIsUnit("targettarget", "player") and UnitClassification("target") == "worldboss" and GetSpellCooldown(45, "spell") >0 and UnitHealth("player")/UnitHealthMax("player") <0.80 then UseContainerItem(b,s)SpellTargetUnit("player")end end end
 
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.50 and strfind(n,"Healthstone") then UseContainerItem(b,s,1)end end end
 /run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitHealth("player")/UnitHealthMax("player") <0.45 and  strfind(n,"Healing Potion")then UseContainerItem(b,s,1)end end end
