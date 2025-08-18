@@ -2,16 +2,18 @@
 
 ```
 /startattack
-/cast [combo:>2,equipped:Fists]剔骨
-/cast [mybuff:毒伤<1,equipped:Daggers]毒伤
-/cast [mybuff:切割<1]切割
+/cast [combo:>2,equipped:拳套]剔骨
+/cast [mybuff:毒伤<2,equipped:匕首]毒伤
+/cast [mybuff:切割<2]切割
+/cast [behind,equipped:匕首,combo:=4,mypower:>60%,mybuff:血腥气息<4]背刺
 /cast [combo:>2,mybuff:血腥气息>9,mybuff:切割>6,mybuff:毒伤>6]剔骨
-/cast [combo:>3,nomybuff:血腥气息,equipped:Daggers]割裂
+/cast [combo:>4,mybuff:血腥气息<2,equipped:匕首]割裂
+/cast [combo:>3,nomybuff:血腥气息,equipped:匕首]割裂
 /cast [mypower:<81%]突袭
-/cast [behind,equipped:Daggers]背刺
+/cast [behind,equipped:匕首]背刺
 /cast [targeting:player]鬼魅攻击
 /cast [nobehind]邪恶攻击
-/cast [equipped:Fists]邪恶攻击
+/cast [equipped:拳套]邪恶攻击
 /use [mypower:<15%,mybuff:剑刃乱舞]菊花茶
 /use [mybuff:剑刃乱舞]大地之击
 /use [mybuff:剑刃乱舞]沙虫之毒
