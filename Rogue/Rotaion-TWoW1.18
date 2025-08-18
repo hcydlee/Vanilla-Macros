@@ -1,0 +1,13 @@
+#21/30敏捷血腥毒伤天赋（邪修）
+```
+/startattack
+/cast [combo:>2,equipped:Fists]剔骨
+/cast [mybuff:毒伤<1,equipped:Daggers]毒伤
+/cast [mybuff:切割<1]切割
+/cast [combo:>2,mybuff:血腥气息>10,mybuff:切割>6,mybuff:毒伤>6]剔骨
+/cast [combo:>3,nomybuff:血腥气息,equipped:Daggers]割裂
+/cast [mypower:<81%]突袭
+/cast [behind,equipped:Daggers]背刺
+/cast [nobehind]邪恶攻击
+/cast [equipped:Fists]邪恶攻击
+```
