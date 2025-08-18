@@ -1,14 +1,29 @@
-##21/30敏捷血腥毒伤天赋（邪修）
+##21/30敏捷血腥毒伤天赋（邪修），小怪双爪，boss匕首
 
 ```
 /startattack
 /cast [combo:>2,equipped:Fists]剔骨
 /cast [mybuff:毒伤<1,equipped:Daggers]毒伤
 /cast [mybuff:切割<1]切割
-/cast [combo:>2,mybuff:血腥气息>10,mybuff:切割>6,mybuff:毒伤>6]剔骨
+/cast [combo:>2,mybuff:血腥气息>9,mybuff:切割>6,mybuff:毒伤>6]剔骨
 /cast [combo:>3,nomybuff:血腥气息,equipped:Daggers]割裂
 /cast [mypower:<81%]突袭
 /cast [behind,equipped:Daggers]背刺
 /cast [nobehind]邪恶攻击
 /cast [equipped:Fists]邪恶攻击
+```
+
+
+##20/31冲动血腥天赋，战斗剑.开冲动装备匕首到主手背刺
+```
+/startattack
+/cast [nomybuff:切割]切割
+/cast [combo:>2,mybuff:血腥气息>8,mybuff:切割>5]剔骨
+/cast [combo:>3,mybuff:切割<2]切割
+/cast [combo:=5,mybuff:血腥气息<2]割裂
+/cast [combo:>3,mybuff:夜刃,mypower:>70%]剔骨
+/cast [mypower:<81%]突袭
+/cast [combo:>3,mybuff:冲动]剔骨
+/cast [mybuff:冲动]背刺
+/cast 邪恶攻击
 ```
