@@ -47,24 +47,27 @@
 ```
 
 
-##20/31冲动血腥天赋，战斗剑.开冲动装备匕首到主手背刺
+##20/31冲动血腥天赋，战斗剑.
 ```
 /startattack
 /cast [nomybuff:切割]切割
-/cast [combo:>2,mybuff:血腥气息>8,mybuff:切割>5]剔骨
-/cast [combo:>3,mybuff:切割<2]切割
 /cast [combo:>3,nomybuff:血腥气息]割裂
-/cast [combo:>3,mybuff:夜刃,mypower:>70%]剔骨
-/cast [mypower:<81%]突袭
-/cast [combo:>3,mybuff:冲动]剔骨
-/cast [mybuff:冲动]背刺
+/cast [combo:=5,mybuff:血腥气息<5]割裂
+/cast [mybuff:切割<10,mybuff:血腥气息>8,mybuff:血腥气息<10]切割
+/cast [mybuff:切割<2,mybuff:血腥气息>10]切割
+/cast [combo:=5,mybuff:血腥气息>8,mybuff:切割>1]剔骨
+/cast [combo:>2,mybuff:血腥气息>10,mybuff:切割>1]剔骨
+/cast [combo:<5,mypower:>39,mybuff:血腥气息>0,mybuff:血腥气息<8]邪恶攻击
+/cast [mypower:<41,mybuff:冲动>0]突袭
+/cast [mypower:<61,nomybuff:冲动]突袭
 /cast [targeting:player]鬼魅攻击
 /cast 邪恶攻击
 /use [mypower:<15%,mybuff:剑刃乱舞]菊花茶
-/use [mybuff:剑刃乱舞]大地之击
-/use [mybuff:剑刃乱舞]沙虫之毒
 /cast [targeting:player]闪避
 /use [myhp:<=50%]特效治疗石
+/use [mybuff:剑刃乱舞]大地之击
+/use [mybuff:剑刃乱舞]沙虫之毒
+
 /use [myhp:<=45%]特效治疗药水
 /use [myhp:<=40%]诺达纳尔草药茶
 ```
@@ -90,3 +93,5 @@
 /use [myhp:<=40%]诺达纳尔草药茶
 
 ```
+
+
