@@ -69,6 +69,27 @@
 /use [myhp:<=45%]特效治疗药水
 /use [myhp:<=40%]诺达纳尔草药茶
 ```
+当前的。
+```
+/startattack
+/cast [combo:>0,mybuff:切割<1]切割
+/cast [combo:>4,mybuff:血腥气息<3,mybuff:切割>1]割裂
+/cast [combo:>3,mybuff:血腥气息<1]割裂
+/cast [combo:>0,mybuff:切割<4,mybuff:血腥气息>7]切割
+/cast [combo:>2,mybuff:血腥气息>7,mybuff:切割>2]剔骨
+/cast 突袭
+/cast [combo:>3,mybuff:冲动>1,mybuff:血腥气息>3,mybuff:切割>1]剔骨
+/cast [targeting:player]鬼魅攻击
+/cast 邪恶攻击
+/use [mypower:<15%,mybuff:剑刃乱舞]菊花茶
+/use [mybuff:剑刃乱舞]大地之击
+/use [mybuff:剑刃乱舞]沙虫之毒
+/cast [targeting:player,type:首领]闪避
+/use [myhp:<=50%]特效治疗石
+/use [myhp:<=45%]特效治疗药水
+
+```
+
 
 ##原始血腥冲动宏
 ```
