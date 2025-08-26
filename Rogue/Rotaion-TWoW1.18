@@ -157,3 +157,18 @@
 
 
 
+
+校长冲动宏
+/startattack
+/cast [combo:<5,nomybuff:冲动,mypower:<81%]突袭
+/cast [combo:<5,mybuff:冲动,mypower:<61%]突袭
+/cast [combo:>4,mybuff:血腥气息<5]割裂
+/cast [mybuff:切割<2]切割
+/cast [combo:>2,nomybuff:冲动,mybuff:血腥气息>7,mybuff:切割>3]剔骨
+/cast [combo:>4,mybuff:冲动,mybuff:血腥气息>7,mybuff:切割>3]剔骨
+/cast [combo:<5,equipped:匕首]背刺
+/cast [combo:<5,equipped:剑]邪恶攻击
+/use 魂能之速
+
+
+
