@@ -136,6 +136,24 @@
 /cast [targeting:player,type:首领]闪避
 
 
-```
+冲动爪匕
+/startattack
+/cast [mybuff:切割<1]切割
+/cast [combo:>4,mybuff:血腥气息<2]割裂
+/cast [mybuff:切割<6,mybuff:血腥气息>6,mybuff:血腥气息<8]切割
+/cast [combo:>2,mybuff:血腥气息>8,mybuff:切割>1]剔骨
+/cast [mypower:<81%]突袭
+/cast [combo:>3,mybuff:冲动>1,mybuff:血腥气息>3,mybuff:切割>1]剔骨
+/cast [targeting:player]鬼魅攻击
+/cast [behind,equipped:匕首]背刺
+/cast [nobehind]邪恶攻击
+/cast [equipped:剑]邪恶攻击
+/cast [mypower:<15%,mybuff:剑刃乱舞]冲动
+/use [mybuff:剑刃乱舞]大地之击
+/use [mybuff:剑刃乱舞]沙虫之毒
+/cast [targeting:player,type:首领]闪避
+/use [myhp:<=50%]特效治疗石
+/use [myhp:<=45%]特效治疗药水
+
 
 
