@@ -111,6 +111,31 @@
 /use [myhp:<=45%]特效治疗药水
 /use [myhp:<=40%]诺达纳尔草药茶
 
+
+
+
+
+邪修匕首
+
+/startattack
+/cast [mybuff:切割<1]切割
+/cast [combo:>3,mybuff:血腥气息<2,equipped:匕首]割裂
+/cast [mybuff:毒伤<1]毒伤
+/cast [mybuff:切割<8,mybuff:血腥气息>8,mybuff:血腥气息<10]切割
+/cast [mybuff:毒伤<8,mybuff:血腥气息>8,mybuff:血腥气息<10]毒伤
+/cast [combo:>2,equipped:拳套]剔骨
+/cast [combo:>2,mybuff:血腥气息>9]剔骨
+/cast [mypower:<81%]突袭
+/cast [behind,equipped:匕首]背刺
+/cast [targeting:player]鬼魅攻击
+/cast [nobehind]邪恶攻击
+/cast [equipped:拳套]邪恶攻击
+/use [mypower:<15%,mybuff:剑刃乱舞]菊花茶
+/use [mybuff:剑刃乱舞]大地之击
+/use [mybuff:剑刃乱舞]沙虫之毒
+/cast [targeting:player,type:首领]闪避
+
+
 ```
 
 
