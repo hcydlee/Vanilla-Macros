@@ -1,4 +1,4 @@
-##21/30敏捷血腥毒伤天赋（邪修），小怪双爪，boss匕首
+##21/30敏捷血腥毒伤天赋（邪修），小怪双爪，boss匕首。调整中
 
 ```
 /startattack
@@ -69,7 +69,7 @@
 /use [myhp:<=45%]特效治疗药水
 /use [myhp:<=40%]诺达纳尔草药茶
 ```
-当前的。
+调整中。
 ```
 /startattack
 /cast [combo:>0,mybuff:切割<1]切割
@@ -107,9 +107,8 @@
 /use [mybuff:剑刃乱舞]大地之击
 /use [mybuff:剑刃乱舞]沙虫之毒
 /cast [targeting:player]闪避
-/use [myhp:<=50%]治疗石
-/use [myhp:<=45%]特效治疗药水
-/use [myhp:<=40%]诺达纳尔草药茶
+
+
 
 
 
@@ -136,19 +135,22 @@
 /cast [targeting:player,type:首领]闪避
 
 
-冲动爪匕
+##27Aug2025新天赋版本：
+
+#冲动血腥-爪匕。20/31. Boss冲动匕首，小怪冲动双爪
 /startattack
+/cast [combo:<5,nomybuff:冲动,mypower:<81%]突袭
+/cast [combo:<5,mybuff:冲动,mypower:<61%]突袭
 /cast [mybuff:切割<1]切割
 /cast [combo:>4,mybuff:血腥气息<2]割裂
-/cast [mybuff:切割<6,mybuff:血腥气息>6,mybuff:血腥气息<8]切割
-/cast [combo:>2,mybuff:血腥气息>8,mybuff:切割>1]剔骨
-/cast [mypower:<81%]突袭
-/cast [combo:>3,mybuff:冲动>1,mybuff:血腥气息>3,mybuff:切割>1]剔骨
+/cast [combo:>2,nomybuff:冲动,mybuff:血腥气息>8,mybuff:切割>3]剔骨
+/cast [combo:>4,mybuff:冲动,mybuff:血腥气息>3,mybuff:切割>1]剔骨
 /cast [targeting:player]鬼魅攻击
-/cast [behind,equipped:匕首]背刺
+/cast [combo:<5,equipped:匕首]背刺
 /cast [nobehind]邪恶攻击
-/cast [equipped:剑]邪恶攻击
+/cast [combo:<5,equipped:拳套]邪恶攻击
 /cast [mypower:<15%,mybuff:剑刃乱舞]冲动
+/use [mypower:<15%,mybuff:剑刃乱舞,nomybuff:冲动]菊花茶
 /use [mybuff:剑刃乱舞]大地之击
 /use [mybuff:剑刃乱舞]沙虫之毒
 /cast [targeting:player,type:首领]闪避
@@ -156,9 +158,74 @@
 /use [myhp:<=45%]特效治疗药水
 
 
+#21/30 剑专，出侵略天赋，大王+K40斧子，全程打邪恶攻击。 邪修剑
+/startattack
+/cast [mybuff:切割<1]切割
+/cast [combo:>3,mybuff:血腥气息<2]割裂
+/cast [mybuff:毒伤<1]毒伤
+/cast [mybuff:切割<8,mybuff:血腥气息>8,mybuff:血腥气息<10]切割
+/cast [mybuff:毒伤<8,mybuff:血腥气息>8,mybuff:血腥气息<10]毒伤
+/cast [combo:>2,mybuff:血腥气息>9]剔骨
+/cast [mypower:<81%]突袭
+/cast [targeting:player]鬼魅攻击
+/cast 邪恶攻击
+/use [mypower:<15%,mybuff:剑刃乱舞]菊花茶
+/use [mybuff:剑刃乱舞]大地之击
+/use [mybuff:剑刃乱舞]沙虫之毒
+/cast [targeting:player,type:首领]闪避
+/use [myhp:<=40%]特效治疗石
+/use [myhp:<=35%]特效治疗药水
+/use [myhp:<=30%]诺达纳尔草药茶
+
+#41/10深刺杀天赋， 配双快武器。双溶解。打双刃毒袭。
+/startattack
+/cast [mybuff:切割<1]切割
+/cast [combo:>3,mybuff:血腥气息<2]割裂
+/cast [mybuff:毒伤<1]毒伤
+/cast [mybuff:切割<8,mybuff:血腥气息>8,mybuff:血腥气息<10]切割
+/cast [mybuff:毒伤<8,mybuff:血腥气息>8,mybuff:血腥气息<10]毒伤
+/cast [combo:>2,mybuff:血腥气息>9]剔骨
+/cast [targeting:player]鬼魅攻击
+/cast 冷血
+/cast 双刃毒袭
+/use [mypower:<15%,mybuff:剑刃乱舞]菊花茶
+/use [mybuff:剑刃乱舞]大地之击
+/use [mybuff:剑刃乱舞]沙虫之毒
+/cast [targeting:player]闪避
+/use [myhp:<=50%]特效治疗石
+/use [myhp:<=45%]特效治疗药水
+/use [myhp:<=40%]诺达纳尔草药茶
 
 
-校长冲动宏
+#背刺血腥毒伤-双匕首24/27邪修匕首,双溶解。主打背刺。
+/startattack
+/cast [mybuff:切割<1]切割
+/cast [combo:>3,mybuff:血腥气息<2,equipped:匕首]割裂
+/cast [mybuff:毒伤<1]毒伤
+/cast [mybuff:切割<8,mybuff:血腥气息>8,mybuff:血腥气息<10]切割
+/cast [mybuff:毒伤<8,mybuff:血腥气息>8,mybuff:血腥气息<10]毒伤
+/cast [combo:>2,equipped:拳套]剔骨
+/cast [combo:>2,mybuff:血腥气息>9]剔骨
+/cast [mypower:<81%]突袭
+/cast [behind,equipped:匕首]背刺
+/cast [targeting:player]鬼魅攻击
+/cast [nobehind]邪恶攻击
+/cast [equipped:拳套]邪恶攻击
+/use [mypower:<15%,mybuff:剑刃乱舞]菊花茶
+/use [mybuff:剑刃乱舞]大地之击
+/use [mybuff:剑刃乱舞]沙虫之毒
+/cast [targeting:player,type:首领]闪避
+
+#爆发宏
+/cast 冲动
+/施放 感知(种族特长)
+/run if GetInventoryItemCooldown("player", 13)==0 then UseInventoryItem(13)end
+/run if GetInventoryItemCooldown("player", 14)==0 then UseInventoryItem(14)end
+/use [type:首领]加速药水
+/use [type:首领]魂能之速
+
+
+#校长冲动宏，供参考。
 /startattack
 /cast [combo:<5,nomybuff:冲动,mypower:<81%]突袭
 /cast [combo:<5,mybuff:冲动,mypower:<61%]突袭
