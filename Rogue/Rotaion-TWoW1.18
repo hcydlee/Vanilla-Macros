@@ -218,12 +218,10 @@
 
 #爆发宏
 /cast 冲动
-/施放 感知(种族特长)
-/run if GetInventoryItemCooldown("player", 13)==0 then UseInventoryItem(13)end
-/run if GetInventoryItemCooldown("player", 14)==0 then UseInventoryItem(14)end
-/use [type:首领]加速药水
-/use [type:首领]魂能之速
-
+/cast 感知(种族特长)
+/run  UseInventoryItem(13)
+/run  UseInventoryItem(14)
+/run for b=0,4 do for s=1,GetContainerNumSlots(b,s)do local n=GetContainerItemLink(b,s)if n and UnitClassification("target") == "worldboss" and (strfind(n,"加速药水") or strfind(n,"魂能之速"))then UseContainerItem(b,s,1)end end end
 
 #校长冲动宏，供参考。
 /startattack
