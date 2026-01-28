@@ -244,5 +244,17 @@
 /cast [combo:<5,equipped:剑]邪恶攻击
 /use 魂能之速
 
+#出血强破宏
+/startattack
+/cast [combo:>4,nodebuff:破甲]破甲
+/cast [mybuff:切割<1]切割
+/cast [combo:>4,mybuff:血腥气息<2,debuff:破甲]割裂
+/cast [combo:=5,debuff:破甲,mybuff:血腥气息>8,mybuff:切割>3]剔骨
+/cast [targeting:player]鬼魅攻击
+/cast [combo:<5]出血
+/use [mypower:<20%,nodebuff:破甲,combo:<4,type:首领]菊花茶
+/use [myhp:<=45%]特效治疗石
+/use [myhp:<=40%]特效治疗药水
+/use [myhp:<=35%]诺达纳尔草药茶
 
 
