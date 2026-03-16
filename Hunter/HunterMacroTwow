@@ -22,12 +22,12 @@
 #震荡射击：A/(A)
 
 
-#猎豹守护 3/（3）
+#猎豹守护 
 灵猴和猎豹切换
 ```
 /run local i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Hunter_AspectOfTheMonkey" then x=1 end i=i+1 end if x==0 then CastSpellByName("灵猴守护") else CastSpellByName("猎豹守护")end
 ```
-#一键守护
+#一键守护 MU(Y+)
 移动中，身边8码内没有敌人且身上没有猎豹守护或者豹群守护就使用猎豹守护；如果目标是未死亡的敌对目标且距离大于8码，切换雄鹰守护；距离小于8码且敌人目标是你使用灵猴守护；否则使用孤狼守护战输出
 /cast [moving,enemynum:dst8=0,nomybuff:猎豹守护/豹群守护]猎豹守护;[harm,nodead,distance:>=8,nomybuff:雄鹰守护]雄鹰守护;
 /cast [harm,nodead,distance:<8,targeting:player,nomybuff:灵猴守护]灵猴守护;[harm,nodead,distance:<8,notargeting:player,nomybuff:孤狼守护]孤狼守护
