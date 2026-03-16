@@ -7,7 +7,7 @@
 
 ##风筝技能组合
 #奥术射击: R/(LT)
-无目标选择最近目标，1级奥术，自动射击，近战生存一套，交互自动拾取，宠物攻击（可取消）
+无目标选择最近目标，1级奥术，自动射击，近战生存一套，交互自动拾取，宠物攻击，关闭低吼
 ```
 /run if UnitHealth("target")==0 and UnitExists("target") then ClearTarget(); end
 /run if not GetUnitName("target")then TargetNearestEnemy()end
@@ -16,6 +16,7 @@
 /hmdps
 /run Interact(0)
 /run PetAttack()
+/run local i,g=1,0 while GetSpellName(i,"pet") do if GetSpellName(i,"pet")=="低吼" then g=i end i=i+1 end local _,y = GetSpellAutocast(g,"pet") if y then ToggleSpellAutocast(g,"pet") end
 ```
 
 #震荡射击：A/(A)
@@ -33,12 +34,13 @@
 ```
 
 #一键宏多功能MD(RT)
-利用GCD，优先猎人印记和Pet攻击，然后进入兽王猎循环，技能在CAT中配置。(hbdps优先自动射击，宏里面先写印记)。目标交互
+利用GCD，优先猎人印记和Pet攻击，然后进入兽王猎循环，技能在CAT中配置。(hbdps优先自动射击，宏里面先写印记)。目标交互，打开低吼
 ```
 /run if UnitHealth("target")==0 and UnitExists("target") then ClearTarget(); end
 /run if GetUnitName("target")==nil then TargetNearestEnemy(); end
 /run local i,x=1,0 while UnitDebuff("target",i) do if UnitDebuff("target",i)=="Interface\\Icons\\Ability_Hunter_SniperShot" then x=1 end i=i+1 end if x==0 then CastSpellByName("猎人印记") end
 /script PetAttack()
+/ru﻿n local i,g=1,0 while GetSpellName(i,"pet") do if GetSpellName(i,"pet")=="低吼" then g=i end i=i+1 end local _,y = GetSpellAutocast(g,"pet") if not y then ToggleSpellAutocast(g,"pet") end
 /hbdps
 /run Interact(0)
 /run ToggleSheath()
@@ -47,22 +49,35 @@
 ##生存及陷阱跑酷系列
 #假死冰冻，被动Q(不绑定)
 ```
+/cleartarget [noknown:捕猎高手]
+/petstay [combat,noknown:捕猎高手]
+/petpassive [combat,noknown:捕猎高手]
+/cast [nocooldown:假死,noknown:捕猎高手,combat]假死
 /cast 冰冻陷阱
-/script if UnitAffectingCombat("player") then CastSpellByName("假死") end
 /script if UnitExists("pettarget") and CheckInteractDistance("target", 3) and UnitIsUnit("target", "pettarget") then PetPassiveMode(); else end
+/targetlastenemy [noknown:捕猎高手]
+
+/script if UnitAffectingCombat("player") then CastSpellByName("假死") end
 ```
 
 ##宠物控制
 
-#宠物控制
+#宠物控制 ：4
 宠物协助友方目标， 攻击敌方目标，再按一次召回。
 ```
 /run if UnitExists("target") then if UnitIsFriend("player","target") then AssistUnit("target");PetAttack();else if UnitExists("pettarget") and UnitIsUnit("target", "pettarget") then PetFollow();else PetAttack();end;end;else PetFollow();end;
 ```
-#宠物3合一
+#宠物3合一：2
 ```
+/cast [mybuff:野兽之眼]突进
+/stopmacro [mybuff:野兽之眼]
 /run if not UnitExists("pet") then CastSpellByName("召唤宠物") else if UnitIsDead("pet") then CastSpellByName("复活宠物") else CastSpellByName("治疗宠物") end end
 ```
+
+
+#野兽之眼，取消野兽之眼:1 
+```
+
 
 ##追踪及其他
 
