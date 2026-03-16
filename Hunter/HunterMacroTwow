@@ -28,6 +28,7 @@
 /run local i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Hunter_AspectOfTheMonkey" then x=1 end i=i+1 end if x==0 then CastSpellByName("灵猴守护") else CastSpellByName("猎豹守护")end
 ```
 #一键守护
+移动中，身边8码内没有敌人且身上没有猎豹守护或者豹群守护就使用猎豹守护；如果目标是未死亡的敌对目标且距离大于8码，切换雄鹰守护；距离小于8码且敌人目标是你使用灵猴守护；否则使用孤狼守护战输出
 /cast [moving,enemynum:dst8=0,nomybuff:猎豹守护/豹群守护]猎豹守护;[harm,nodead,distance:>=8,nomybuff:雄鹰守护]雄鹰守护;
 /cast [harm,nodead,distance:<8,targeting:player,nomybuff:灵猴守护]灵猴守护;[harm,nodead,distance:<8,notargeting:player,nomybuff:孤狼守护]孤狼守护
 
@@ -77,7 +78,13 @@
 /stopmacro [mybuff:野兽之眼]
 /run if not UnitExists("pet") then CastSpellByName("召唤宠物") else if UnitIsDead("pet") then CastSpellByName("复活宠物") else CastSpellByName("治疗宠物") end end
 ```
-
+/cast [mybuff:野兽之眼]突进
+/stopmacro [mybuff:野兽之眼]
+/cast [nopet] 召唤宠物
+/cast [@pet,dead] 复活宠物
+/cast [@pet,alive,nomycasting:治疗宠物,hp:pet<75,nomod:ctrl/alt] 治疗宠物;[nomod:ctrl/alt,nomycasting:治疗宠物]治疗宠物(等级 1)
+/cast [@pet,alive,mod:ctrl]解散野兽
+/cast [@pet,alive,mod:alt]野兽之眼
 
 #野兽之眼，取消野兽之眼:1 
 ```
