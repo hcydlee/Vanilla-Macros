@@ -17,7 +17,9 @@
 ##生存及陷阱跑酷系列
 
 
+##宠物控制
 
+##追踪及其他
 
 #
 /run if UnitHealth("target")==0 and UnitExists("target") then ClearTarget(); end
