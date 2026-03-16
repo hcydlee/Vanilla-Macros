@@ -2,6 +2,23 @@
 #兼顾跑酷猎人，兽王猎人，风筝等功能
 #主要思路是一键宏包含的输出技能不单列，特殊技能除外，例如：1级奥术射击，毒蛇钉刺和蝰蛇钉刺
 #按键配置也列出，包含手柄和键位。
+
+
+
+##风筝技能组合
+#奥术射击
+#震荡射击
+#猎豹守护
+
+
+##一键输出宏
+
+
+##生存及陷阱跑酷系列
+
+
+
+
 #
 /run if UnitHealth("target")==0 and UnitExists("target") then ClearTarget(); end
 /run if GetUnitName("target")==nil then TargetNearestEnemy(); end
