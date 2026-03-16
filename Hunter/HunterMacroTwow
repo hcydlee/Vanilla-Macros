@@ -1,9 +1,15 @@
-
-MACRO 16777218 "BiuBiu" Ability_Hunter_SteadyShot
+###利用CAT或者HunberBiuBiu一键宏 Interact model,适合键鼠以及手柄的猎人宏系列
+#兼顾跑酷猎人，兽王猎人，风筝等功能
+#主要思路是一键宏包含的输出技能不单列，特殊技能除外，例如：1级奥术射击，毒蛇钉刺和蝰蛇钉刺
+#按键配置也列出，包含手柄和键位。
+#
 /run if UnitHealth("target")==0 and UnitExists("target") then ClearTarget(); end
 /run if GetUnitName("target")==nil then TargetNearestEnemy(); end
 /hbdps
-END
+
+
+
+
 MACRO 16777221 "PA毒蛇" Ability_Hunter_Quickshot
 /run local _,_,_,_,isActive=GetPetActionInfo(10) if not isActive and not GetUnitName("pettarget") then PetAttack() end
 /cast 毒蛇钉刺
